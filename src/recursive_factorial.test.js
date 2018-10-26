@@ -1,9 +1,9 @@
 const { expect } = require('chai');
-const { fact } = require('./recursive_factorial');
+const { recursiveFactorial } = require('./recursive_factorial');
 
-describe('fact', () => {
+describe('recursiveFactorial', () => {
   it('должна возвращать для 3! число 6', () => {
-    const res = fact(3);
+    const res = recursiveFactorial(3);
     expect(res).to.equal(6);
   });
 });

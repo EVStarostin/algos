@@ -3,9 +3,9 @@
  * @param {number[]} arr - Массив, числа которого необходимо сложить
  * @returns {number} Сумма элементов массива
  */
-function sum(arr) {
+function recursiveSum(arr) {
   if (arr.length === 0) return 0;
-  else return arr[0] + sum(arr.slice(1));
+  else return arr[0] + recursiveSum(arr.slice(1));
 }
 
-module.exports = { sum };
+module.exports = { recursiveSum };
