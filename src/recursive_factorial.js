@@ -5,7 +5,7 @@
  */
 function recursiveFactorial(x) {
   if (x === 1) return 1;
-  else return x * recursiveFactorial(x - 1);
+  return x * recursiveFactorial(x - 1);
 }
 
 module.exports = { recursiveFactorial };
