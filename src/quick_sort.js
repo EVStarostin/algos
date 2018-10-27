@@ -11,7 +11,7 @@ function quickSort(array) {
   const pivot = array[0];
   const less = array.slice(1).filter(el => el <= pivot);
   const greater = array.slice(1).filter(el => el > pivot);
-  return quickSort(less).concat(pivot, quickSort(greater));
+  return [].concat(quickSort(less), pivot, quickSort(greater));
 }
 
 module.exports = { quickSort };
