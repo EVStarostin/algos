@@ -1,7 +1,7 @@
 const { expect } = require('chai');
-const { preOrder } = require('./DFS');
+const { bfs } = require('./BFS');
 
-describe('preOrderDFS', () => {
+describe('BFS', () => {
   const binaryTree = {
     value: 'F',
     left: {
@@ -39,10 +39,10 @@ describe('preOrderDFS', () => {
       },
     },
   };
-  const expectedResult = ['F', 'B', 'A', 'D', 'C', 'E', 'G', 'I', 'H'];
+  const expectedResult = ['F', 'B', 'G', 'A', 'D', 'I', 'C', 'E', 'H'];
 
   it(`должна возвращать массив со значениями узлов дерева ${expectedResult}`, () => {
-    const res = preOrder(binaryTree);
+    const res = bfs(binaryTree);
     expect(res).to.eql(expectedResult, `${res} !== ${expectedResult}`);
   });
 });
