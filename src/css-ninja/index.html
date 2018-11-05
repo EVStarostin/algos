@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    .space {
+      height: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .space {
+      background-color: #0F0F0F;
+      position: relative;
+    }
+
+    .planet {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(#e66465, #9198e5);
+      border-radius: 50%;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="space">
+    <div class="planet"></div>
+  </div>
+
+  <script>
+    const planet = document.querySelector('.planet');
+
+    const center = {
+      x: document.documentElement.clientWidth / 2,
+      y: document.documentElement.clientHeight / 2
+    }
+
+    planet.style.left = `${center.x - planet.clientWidth / 2}px`;
+    planet.style.top = `${center.y - planet.clientHeight / 2}px`;
+
+    const radiusX = 300;
+    const radiusY = 150;
+    const speed = 20;
+
+    const time = Date.now();
+
+    function draw() {
+      requestAnimationFrame(draw);
+      const currTime = Date.now();
+      const alpha = (currTime - time) * 2 * Math.PI / 5000;
+
+      const x = radiusX * Math.sin(alpha);
+      const y = radiusY * Math.cos(alpha);
+
+      const scale = y >= 0 ? (2 + Math.abs(y / 200)) * 0.5 : (2 - Math.abs(y / 200)) * 0.5;
+
+      planet.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    }
+
+    draw();
+
+  </script>
+</body>
+
+</html>
